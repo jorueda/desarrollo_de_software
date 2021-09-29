@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // document.write("Hola Mundo");
+
+        // var mensaje = "Hola! ejemplo de un mensaje emergente";
+        // alert(mensaje);
+
+        // var mensaje2 = "Digite la clave de su tarjeta débito: ";
+        // prompt(mensaje2, 1000)
+
+        // var nombre, apellido;
+        // nombre = prompt("Escribe tu mombre: ");
+        // apellido = prompt("Escribe tu apellido: ");
+        // if (nombre == "Juan" && apellido == "Perez") {
+        //     alert("Puede pasar.")
+        // } else {
+        //     alert("No puede pasar.")
+        // }
+
+        // var i = 0;
+        // while (i<6) {
+        //     alert("Valor de i: " + i);
+        //     i++;
+        // }
+
+        function mostrar (x1, x2) {
+            var inicio;
+            for (inicio=x1; inicio<=x2; inicio++) {
+                document.write(inicio + " ");
+            }
+        }
+        var n1, n2;
+        n1 = prompt("Escribe valor inferior: ");
+        n2 = prompt("Escribe valor superior: ");
+        mostrar (n1, n2);
+    </script>
+</body>
+</html>

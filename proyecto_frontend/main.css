@@ -1,0 +1,26 @@
+.temaclaro {
+    color: #000000;
+    background: #00ff00;
+}
+
+ul {
+    font-family: forte;
+}
+
+li {
+    list-style: circle;
+}
+
+.list {
+    list-style: square;
+}
+
+.temaoscuro {
+    color: #f1e0e0;
+    background: #272c27;
+}
+
+.btn {
+    color: #f8f0f0;
+    background-color: #000000;
+}
