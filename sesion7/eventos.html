@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de eventos JavaScript</title>
+</head>
+<body>
+    <h2>Evento onclick</h2>
+    <input type="button" value="Enviar Saludo" onclick="alert('Hola Mundo con evento onclick!')">
+
+    <h2>Evento onfocus</h2>
+    Username: <input type="text" name="" id="usuario" onfocus="this.style.background = 'yellow'" onblur="this.style.background = 'white'"/>
+    Password: <input type="password" name="" id="usuario" onfocus="this.style.background = 'yellow'" onblur="this.style.background = 'white'"/>
+
+    <h2>Evento onkeypress</h2>
+    <input type="text" name ="" onkeypress="teclear()">
+    <script>
+        function teclear() {
+            alert("Presionaste una tecla en el cuadro de texto.");
+        }
+    </script>
+
+    <h2>Evento onchange</h2>
+    <p>Selecciona un vehículo de la lista</p>
+    <select name="" id="listado" onchange="change()">
+        <option value="Toyota">Toyota</option>
+        <option value="Chevrolet">Chevrolet</option>
+        <option value="Kia">Kia</option>
+        <option value="Renault">Renault</option>
+    </select>
+
+    <p id="texto"></p>
+    <script>
+        function change() {
+            var texto = document.querySelector('#listado').value;
+            document.getElementById("texto").innerHTML = "Seleccionaste: " + texto;
+        }
+    </script>
+</body>
+</html>

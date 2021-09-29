@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos en JavaScript</title>
+</head>
+<body>
+    <script>
+        function cerrar() {
+            window.close();
+        }
+        var edad = prompt("Indica tu edad");
+        while(!confirm ("tu edad es:" + edad)) {
+            var edad = prompt("Indica tu edad:");
+        }
+
+        if (edad >= 18) {
+            alert("Eres mayor de edad, puedes ir a la disco.");
+        } else {
+            alert("Eres menor de edad, NO puedes ir a la disco.");
+            document.write("Esta página se destruirá en 5 segundos.");
+            setTimeout(cerrar, 5000);
+        }
+
+    document.write("appCodeName: " +navigator.appCodeName + "<br>")
+    document.write("appName: " +navigator.appName + "<br>")
+    document.write("appVersion: " +navigator.appVersion + "<br>")
+    document.write("cookieEnabled: " +navigator.cookieEnabled + "<br>")
+    document.write("platform: " +navigator.platform + "<br>")
+    </script>
+
+    <a href="javascript:window.print()">Imprimir página</a>
+    
+</body>
+</html>
