@@ -1,11 +1,14 @@
-from flask import Flask, render_template, request, flash
+import os
+import yagmail as yagmail
+from flask import Flask, render_template, flash, request
 import utils
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 @app.route('/')
 def index():
-    return render_template("formularioClase.html")
+    return render_template("register.html")
 
 @app.route('/login/')
 def login():
@@ -13,12 +16,30 @@ def login():
 
 @app.route('/register', methods=('GET', 'POST'))
 def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        correo = request.form['correo']
-        # if not utils.isUsernameValid(username):
-        #     error = "El usuario debe ser alfanumérico."
-        #     flash(error)
-        #     return render_template()
-        return render_template('respuesta.html')
+    try:
+        if request.method == 'POST':
+            username = request.form['username']
+            password = request.form['password']
+            correo = request.form['correo']
+
+            error = None
+            if not utils.isUsernameValid(username):
+                error = "El usuario debe ser alfanumérico."
+                flash(error)
+                return render_template('register.html')
+            if not utils.isPasswordValid(password):
+                error = "La contraseña debe tener al menos una minúscula."
+                flash(error)
+                return render_template('register.html')
+            if not utils.isEmailValid(correo):
+                error = "Correo inválido."
+                flash(error)
+                return render_template('register.html')
+
+            yag = yagmail.SMTP('uninortegrupo6@gmail.com', '%Grupo6%')
+            yag.send(to=correo, subject="Activa tu cuenta",
+            contents = "Bienvenido, usa este link para activar tu cuenta.")
+            flash("Revisa tu correo electrónico para activar tu cuenta.")
+            return render_template('login.html')
+    except:
+        return render_template('register.html')

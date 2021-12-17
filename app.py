@@ -1,5 +1,5 @@
-# $env:FLASK_APP = archivo.py en PowerShell
-# $env:FLASK_ENV = "development" en PowerShell
+# $env:FLASK_APP="archivo.py" en PowerShell
+# $env:FLASK_ENV="development" en PowerShell
 
 from flask import Flask
 
