@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App contacts</title>
+</head>
+<body>
+    <h1 style="color:#535034">Flask Contactos App - SQLite</h1>
+
+    {% for message in get_flashed_messages() %}
+        <div>{{ message }}</div>
+    {% endfor %}
+
+    <form action="/add_contact" method="post">
+        <div>
+            <input type="text" name="fullname" placeholder="Fullname" id="">
+        </div>
+        <div>
+            <input type="text" name="email" placeholder="Email" id="">
+        </div>
+        <div>
+            <input type="tel" name="phone" placeholder="Phone" id="">
+        </div>
+        <div>
+            <button>Save</button>
+        </div>
+    </form>
+    <table border="1" cellspacing="4" cellpadding="5">
+        <tr>
+            <td>Id</td>
+            <td>Fullname</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Operaciones</td>
+        </tr>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.0 }}</td>
+                <td>{{ contact.1 }}</td>
+                <td>{{ contact.2 }}</td>
+                <td>{{ contact.3 }}</td>
+                <td>
+                    <a href="/edit/{{contact.0}}">Update</a>
+                    <a href="/delete/{{contact.0}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

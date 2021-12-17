@@ -1,0 +1,20 @@
+{% block body %}
+
+<div>
+    <form action="/update/{{contacts.0}}" method="post">
+        <div>
+            <input type="text" name="fullname" placeholder="Fullname" value="{{contacts.1}}" id="">
+        </div>
+        <div>
+            <input type="text" name="email" placeholder="Email" value="{{contacts.2}}" id="">
+        </div>
+        <div>
+            <input type="tel" name="phone" placeholder="Phone" value="{{contacts.3}}" id="">
+        </div>
+        <div>
+            <button>Update</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
